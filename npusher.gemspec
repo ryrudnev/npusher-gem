@@ -9,19 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["rudnev"]
   spec.email         = ["ryrudnev@gmail.com"]
 
-  spec.summary       = %q{Gem for NPusher}
-  spec.description   = %q{API for NPusher}
+  spec.summary       = %q{Gem for NPusher.}
+  spec.description   = %q{API for NPusher.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
+  spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
 
   spec.add_runtime_dependency "httparty"
 
