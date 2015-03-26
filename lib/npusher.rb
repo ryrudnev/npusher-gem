@@ -7,7 +7,7 @@ module Npusher
     attr_accessor :app, :token, :secret, :host, :port
     attr_reader :result
     
-    def initialize app, token, secret, host, port
+    def initialize(app, token, secret, host, port)
       @app = app
       @token = token
       @secret = secret
@@ -15,7 +15,8 @@ module Npusher
       @port = port
     end
 
-    def trigger path, data
+    def trigger(path, data)
+      byebug
       @result = HTTParty.post("#{create_base_url}#{path}",
         body: data.to_json,
         basic_auth: { username: @token, password: @secret },
@@ -26,7 +27,7 @@ module Npusher
     private
 
     def create_base_url
-      "#{@server}:#{@port}/api/apps/#{@app}"
+      "#{@host}:#{@port}/api/apps/#{@app}"
     end
   end
 end
