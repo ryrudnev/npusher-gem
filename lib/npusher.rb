@@ -21,7 +21,6 @@ module Npusher
         basic_auth: { username: @token, password: @secret },
         headers: { 'Content-Type' => 'application/json' }
       )
-      byebug
     end
 
     private
