@@ -16,12 +16,12 @@ module Npusher
     end
 
     def trigger(path, data)
-      byebug
       @result = HTTParty.post("#{create_base_url}#{path}",
         body: data.to_json,
         basic_auth: { username: @token, password: @secret },
         headers: { 'Content-Type' => 'application/json' }
       )
+      byebug
     end
 
     private
